@@ -53,3 +53,17 @@ CREATE TABLE share (
   FOREIGN KEY (post_id) REFERENCES post (post_id),
   FOREIGN KEY (user_id) REFERENCES user (user_id)
 );
+
+-- Added table for followers
+
+CREATE TABLE follower (
+  follower_id INT PRIMARY KEY,
+  user_id INT NOT NULL,
+  follower_name VARCHAR(50) NOT NULL,
+  follow_date DATE NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES user (user_id)
+);
+
+
+
+
