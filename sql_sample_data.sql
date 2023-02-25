@@ -23,6 +23,10 @@ VALUES
   (19, 19, 1, 'Had a great time at the game last night', '2022-02-21'),
   (20, 20, 2, 'Thrilled to be featured in this month’s issue of the magazine', '2022-02-22');
 
+  -- Add 1 year on to post_date
+UPDATE post
+SET post_date = DATEADD(YEAR, 1, post_date);
+
 
 
   -- Insert into comments table
@@ -48,6 +52,9 @@ VALUES
   (18, 9, 3, 'Thanks! I think it has a lot of potential.', '2022-01-18'),
   (19, 10, 4, 'This is great information, thank you for sharing!', '2022-01-19'),
   (20, 10, 5, 'Glad you found it helpful!', '2022-01-20');
+  --- Add one year to comment date
+  UPDATE comment
+SET  comment_date = DATEADD(YEAR, 1,  comment_date);
 
   -- Insert data into like table
   INSERT INTO [like] (like_id, post_id, user_id, like_date)
@@ -71,6 +78,9 @@ VALUES (1, 1, 1, '2022-02-01'),
        (18, 18, 18, '2022-02-18'),
        (19, 19, 19, '2022-02-19'),
        (20, 20, 20, '2022-02-20');
+	   -- Add 1 year to "like" date
+	      UPDATE [like]
+SET  like_date = DATEADD(YEAR, 1,  like_date);
 
 	   -- Share Table
 
@@ -95,7 +105,9 @@ VALUES (1, 3, 4, '2022-01-01'),
        (18, 2, 5, '2022-01-18'),
        (19, 5, 1, '2022-01-19'),
        (20, 1, 9, '2022-01-20');
-
+	   -- Add one year to share date
+ UPDATE [share]
+SET  share_date = DATEADD(YEAR, 1,  share_date);
 	   -- Followers table
 
 
@@ -121,3 +133,6 @@ VALUES (1, 4, 'John Doe', '2022-01-01'),
        (18, 6, 'George Anderson', '2022-10-10'),
        (19, 4, 'Jessica Brown', '2022-11-01'),
        (20, 2, 'Kevin Martin', '2022-11-15');
+	   -- Add 1 year to follow date
+UPDATE follower
+SET  follow_date = DATEADD(YEAR, 1,  follow_date);
